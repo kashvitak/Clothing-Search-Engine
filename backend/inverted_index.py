@@ -2,7 +2,6 @@ from collections import defaultdict, Counter
 from corpus_parser import parse_corpus
 from preprocessing import preprocess
 
-
 class InvertedIndex:
     """
     Inverted Index class that builds and stores the index structure:
@@ -18,7 +17,6 @@ class InvertedIndex:
     }
     """
     def __init__(self, corpus):
-        # Handle both dictionary or list corpus formats
         if isinstance(corpus, dict):
             documents = []
             for doc_id, doc_data in corpus.items():
@@ -54,9 +52,7 @@ class InvertedIndex:
             term_counts = Counter(tokens)
 
             for term, tf in term_counts.items():
-                # Store TF for this document
                 index[term]["postings"][doc_id] = tf
-                # Increase document frequency by 1
                 index[term]["df"] += 1
 
         return dict(index)
@@ -75,25 +71,3 @@ class InvertedIndex:
 
     def __len__(self):
         return len(self.index)
-
-
-if __name__ == "__main__":
-    # Read corpus
-    documents = parse_corpus("../data/corpus_100.txt")
-
-    # Build index using the class
-    inv_index = InvertedIndex(documents)
-
-    print("Number of unique terms:", len(inv_index))
-
-    # Display a few terms
-    print("\nSample dictionary entries:")
-    for term in sorted(inv_index.keys())[:20]:
-        entry = inv_index[term]
-        print(
-            term,
-            "-> df:",
-            entry["df"],
-            "postings:",
-            entry["postings"]
-        )
