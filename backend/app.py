@@ -9,9 +9,9 @@ import json
 from corpus_parser import parse_corpus
 from preprocessing import preprocess
 from inverted_index import InvertedIndex
-from vsm import vsm
-from positional_index import positional_index
-from bm25_index import bm25_index
+from vsm import VSM
+from positional_index import PositionalIndex
+from bm25_index import BM25Index
 
 # Initialize Flask app
 app = Flask(__name__)
