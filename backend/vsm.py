@@ -230,4 +230,17 @@ if __name__ == "__main__":
             f"{result['title']} | "
             f"{result['score']:.6f}"
         )
-        
+    class VSM:
+    """
+    Compatibility wrapper class for VSM functions so it matches app.py
+    """
+    def __init__(self, corpus, inverted_index):
+        self.corpus = corpus
+        self.inverted_index = inverted_index
+
+    def search(self, query, top_k=10):
+        # Calls the existing search function in vsm.py
+        results = search(query, self.corpus, self.inverted_index)
+        if isinstance(results, list):
+            return results[:top_k]
+        return results
