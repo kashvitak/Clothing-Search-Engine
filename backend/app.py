@@ -206,7 +206,7 @@ def proximity_search():
     if not term1 or not term2:
         return jsonify({'error': 'Both term1 and term2 parameters are required'}), 400
 
-    if k < 0:
+    if k <= 0:
         return jsonify({'error': 'k must be a positive integer'}), 400
 
     try:
