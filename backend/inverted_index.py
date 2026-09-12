@@ -71,3 +71,8 @@ class InvertedIndex:
 
     def __len__(self):
         return len(self.index)
+        
+    def build_inverted_index(documents):
+        """Compatibility helper for modules expecting the old function name"""
+        index_obj = InvertedIndex(documents)
+        return index_obj.index
