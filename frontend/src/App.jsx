@@ -198,7 +198,7 @@ function App() {
     <div className="app">
       <header className="app-header">
         <div className="header-content">
-          <h1>🧵 Clothing Search Engine</h1>
+          <h1>Clothing Search Engine</h1>
           <p className="subtitle">IR System with VSM & BM25 Comparison</p>
         </div>
       </header>
