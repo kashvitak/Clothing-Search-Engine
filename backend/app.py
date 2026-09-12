@@ -8,7 +8,7 @@ from flask_cors import CORS
 import json
 from corpus_parser import parse_corpus
 from preprocessing import preprocess
-from inverted_index import inverted_index
+from inverted_index import InvertedIndex
 from vsm import vsm
 from positional_index import positional_index
 from bm25_index import bm25_index
