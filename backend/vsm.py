@@ -184,12 +184,15 @@ def search(query, documents, index):
 
         if score > 0:
 
-         results.append({
-            "doc_id": document["doc_id"],
-            "title": document["title"],
-            "category": document["category"],
-            "score": score
-        })
+            text = document.get("text", "")
+
+            results.append({
+                "doc_id": document["doc_id"],
+                "title": document["title"],
+                "category": document["category"],
+                "score": score,
+                "text": (text[:200] + "...") if len(text) > 200 else text
+            })
 
     # Sort:
     # 1. Highest score first
@@ -206,7 +209,7 @@ def search(query, documents, index):
 
 if __name__ == "__main__":
 
-    documents = parse_corpus("C:\\Users\\Kashvi Tak\\OneDrive\\Desktop\\Clothing-Search-Engine\\data\\corpus_100.txt")
+    documents = parse_corpus("../data/corpus_100.txt")
 
     index = build_inverted_index(documents)
 

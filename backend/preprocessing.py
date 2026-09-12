@@ -51,6 +51,11 @@ def preprocess(text):
     return tokens
 
 
+# Alias kept for backward compatibility with modules (e.g. bm25_index.py)
+# that import `preprocess_text` instead of `preprocess`.
+preprocess_text = preprocess
+
+
 if __name__ == "__main__":
 
     test_text = "Men's Cotton Shirts are breathable and comfortable!"
